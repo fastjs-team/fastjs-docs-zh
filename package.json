@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fastjs-team/fastjs-docs-zh.git"
