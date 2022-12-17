@@ -1,0 +1,21 @@
+{
+  "name": "fastjs-docs-zh",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fastjs-team/fastjs-docs-zh.git"
+  },
+  "author": "dy-xiaodong2022",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fastjs-team/fastjs-docs-zh/issues"
+  },
+  "homepage": "https://github.com/fastjs-team/fastjs-docs-zh#readme",
+  "dependencies": {
+    "vitepress": "^1.0.0-alpha.32",
+    "vue": "^3.2.45"
+  }
+}
