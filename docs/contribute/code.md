@@ -1,4 +1,4 @@
-# 文档贡献
+# 代码贡献
 
 :::tip Specifications
 See [Readme](https://github.com/fastjs-team/fastjs-next/blob/main/README.md) and [Contribute](https://github.com/fastjs-team/fastjs-next/blob/main/CONTRIBUTE.md) for specifications and contribution guidelines.
