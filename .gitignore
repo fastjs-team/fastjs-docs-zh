@@ -56,3 +56,4 @@ node_modules/
 .vscode/
 
 docs/.vitepress/dist
+docs/.vitepress/cache
