@@ -1,7 +1,7 @@
 export default {
   "nav": [
     {
-      "text": "Home",
+      "text": "首页",
       "link": "https://fastjs.com.cn/"
     },
     {
@@ -9,7 +9,7 @@ export default {
       "link": "https://github.com/fastjs-team/fastjs-next"
     },
     {
-      "text": "Docs",
+      "text": "文档",
       "items": [
         {
           "text": "v1.x",
