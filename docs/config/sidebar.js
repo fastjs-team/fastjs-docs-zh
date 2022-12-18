@@ -1,52 +1,52 @@
 const introduction = {
-  "text": "Introduction",
+  "text": "引言",
   "items": [
     {
-      "text": "Description",
+      "text": "说明",
       "link": "/"
     },
     {
-      "text": "Version List",
+      "text": "版本列表",
       "link": "/guide/version-list"
     },
     {
-      "text": "Getting Started",
+      "text": "开始使用",
       "link": "/guide/getting-started"
     },
     {
-      "text": "Reading Help",
+      "text": "阅读帮助",
       "link": "/guide/reading-help"
     }
   ]
 }
 
 const contribute = {
-  "text": "Contribute",
+  "text": "赞助",
   "items": [
     {
-      "text": "Become a Sponsor",
+      "text": "成为赞助人",
       "link": "/contribute/sponsor"
     },
     {
-      "text": "Docs Contribution",
+      "text": "贡献文档",
       "link": "/contribute/docs"
     },
     {
-      "text": "Code Contribution",
+      "text": "贡献代码",
       "link": "/contribute/code"
     },
   ]
 }
 
 const other = {
-  "text": "Other",
+  "text": "其他",
   "items": [
     {
-      "text": "Sponsor",
+      "text": "赞助人",
       "link": "/other/sponsor"
     },
     {
-      "text": "Change Log",
+      "text": "更新日志",
       "link": "/other/changelog"
     }
   ]
@@ -56,36 +56,36 @@ export default {
   "/v1.x/": [
     introduction,
     {
-      "text": "Essentials",
+      "text": "基本组件",
       "items": [
         {
-          "text": "Selecter",
+          "text": "选择器",
           "link": "/v1.x/selecter"
         },
         {
-          "text": "Element",
+          "text": "元素",
           "link": "/v1.x/element"
         },
         {
-          "text": "Dom",
+          "text": "文档对象模型",
           "link": "/v1.x/dom"
         },
         {
-          "text": "DomList",
+          "text": "文档对象模型列表",
           "link": "/v1.x/domlist"
         },
         {
-          "text": "Array",
+          "text": "数组",
           "link": "/v1.x/array"
         },
         {
-          "text": "Bind",
+          "text": "绑定器",
           "link": "/v1.x/bind"
         }
       ]
     },
     {
-      "text": "Modules",
+      "text": "模块化",
       "items": [
         {
           "text": "Ajax",
@@ -99,7 +99,7 @@ export default {
   "/": [
     introduction,
     {
-      "text": "Start Here",
+      "text": "从这里开始",
       "items": [
         {
           "text": "v1.x",

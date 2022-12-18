@@ -1,19 +1,15 @@
-# Description
+# 说明
 
-## What is it?
+## 什么是 Fastjs ?
 
-Fastjs is a high availability, high performance JavaScript Frame. It is designed to be easy to use. Fastjs can be use like a library with any framework, or it can be used as a framework itself.
+Fastjs 是一个高可用、高性能的 JavaScript 框架。它使用了简单易用的设计理念。Fastjs 可以像任何框架的库一样使用，也可以作为框架本身使用。
+对于项目开发来说，Fastjs 是一个不错的选择，我们的团队正在努力使它变得更好。
+## 为什么选择 Fastjs ?
 
-Fastjs is a good choice for you to develop your project, Our team are working hard to make it better.
+我们正在努力制作一个高可用、高性能的 JavaScript 框架。Fastjs 是开发项目的好帮手。你可以把它当作一个框架，也可以把他当作工具库来使用。
 
-## Why Fastjs?
+## 开发者
 
-We are trying to make a high availability, high performance JavaScript Frame. Fastjs is a good choice for you to develop your project.
-
-You can use Fastjs as a framework, or use it as a library.
-
-## Developer
-
-Fastjs is developed by [Fastjs Team](https://github.com/fastjs-team).
+Fastjs 是由 [Fastjs Team](https://github.com/fastjs-team) 团队开发的。
 
 - [dy-xiaodong2022](https://xiaodong.indouyin.cn/)
