@@ -1,33 +1,33 @@
-# Reading Help
+# 阅读帮助
 
-This page can let you read the docs more easily.
+本页可以让你更容易地阅读文档。
 
-## Badges
+## 标签
 
-### Green
+### 绿色
 
-This means that the function is available **after** this version.
+这表示函数在这个版本或更高才可用。
 
 #### Test <Badge type="tip" text="v1.0.4"/>
 
-Test function is available at 1.0.4 and later.
+函数 `test` 在 1.0.4 或更高版本可用。
 
-### Yellow
+### 黄色
 
-This means that the function has a bug **before** this version.
+这表示函数在这个版本之前有一个或多个bug。
 
 #### Test <Badge type="warning" text="v1.0.4"/>
 
-Test function has a bug at 1.0.x - 1.0.3.
+函数 `test` 在 1.0.x - 1.0.3 有一个或多个bug，不推荐使用。
 
 #### Test <Badge type="warning" text="v1.0.4"/> <Badge type="warning" text="v1.2.3"/>
 
-Test function has a bug at 1.0.x - 1.0.3 and 1.2.x - 1.2.2.
+函数 `test` 在 1.0.x - 1.0.3 和 1.2.x - 1.2.2 有一个或多个bug，不推荐使用。
 
-### Red
+### 红色
 
-This means that the function is **not** available **before** this version.
+这表示函数在这个版本或更高已经被移除。
 
 #### Test <Badge type="danger" text="v1.0.4"/>
 
-Test function is not available at 1.0.4 and later.
+函数 `test` 在 1.0.4 或更高版本已经被移除。
