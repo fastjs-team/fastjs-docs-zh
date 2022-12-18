@@ -63,15 +63,15 @@ export default {
           "link": "/v1.x/selecter"
         },
         {
-          "text": "元素",
+          "text": "元素基础",
           "link": "/v1.x/element"
         },
         {
-          "text": "文档对象模型",
+          "text": "元素",
           "link": "/v1.x/dom"
         },
         {
-          "text": "文档对象模型列表",
+          "text": "元素列表",
           "link": "/v1.x/domlist"
         },
         {
@@ -79,17 +79,21 @@ export default {
           "link": "/v1.x/array"
         },
         {
-          "text": "绑定器",
+          "text": "数据绑定",
           "link": "/v1.x/bind"
         }
       ]
     },
     {
-      "text": "模块化",
+      "text": "扩展",
       "items": [
         {
-          "text": "Ajax",
+          "text": "Ajax请求",
           "link": "/v1.x/ajax"
+        },
+        {
+          "text": "日期",
+          "link": "/v1.x/date"
         }
       ]
     },

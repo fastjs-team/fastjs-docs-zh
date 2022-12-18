@@ -193,12 +193,12 @@ console.log($("body").css()); // $("#body").css() instanceof CSSStyleDeclaration
 
 ### Example
 
-Use `style` to set the style of the element.
+Use `css` to set the style of the element.
 
 ```javascript
 import { selecter as $ } from 'fastjs-next';
 
-$("body").style("background-color", "red !important");
+$("body").css("background-color", "red !important");
 ```
 
 ## Event <Badge text="v1.1.0" type="warning"/>
@@ -232,7 +232,7 @@ $("body").on("click", (el) => {
 });
 ```
 
-### off <Badge text="v1.1.0" type="warning"/>
+### off <Badge text="v1.1.0" type="tip"/>
 
 Use `off` to remove event from the element.
 
@@ -300,7 +300,7 @@ Please give an Element, not FastjsDom or FastjsDomList.
 ```typescript
 class fastjsDom {
     appendTo(el: HTMLElement): fastjsDom {}
-    pushTo(el: HTMLElement): fastjsDom {}
+    push(el: HTMLElement): fastjsDom {}
     addFirst(el: HTMLElement): fastjsDom {}
     addAfter(el: HTMLElement): fastjsDom {}
     addBefore(el: HTMLElement): fastjsDom {}
@@ -311,7 +311,7 @@ class fastjsDom {
 
 ### Add to end
 
-Use `appendTo` or `pushTo` to add the element to the end of the place.
+Use `appendTo` or `push` to add the element to the end of the place.
 
 ```javascript
 import { selecter as $, FastjsDom } from 'fastjs-next';
@@ -442,6 +442,7 @@ import { selecter as $ } from 'fastjs-next';
 
 $("input").getEl().focus();
 ```
+
 ## Demo
 
 ### Create and push to body

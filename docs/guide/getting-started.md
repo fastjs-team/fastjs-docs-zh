@@ -1,28 +1,28 @@
-# Getting Started
+# 开始使用
 
-## Create a new project
+## 创建新项目
 
 :::tip Fastjs CLI
-Fastjs-cli is now available!
+我们的官方脚手架 Fastjs-cli 现已可用!
 :::
 
 :::warning Fastjs CLI
-If you using fastjs-next `v1.1.0` or later, please update fastjs-cli to `v2.3.0` or later.
+如果你正在使用 fastjs-next `v1.1.0` 或更高, 请将 fastjs-cli 更新至版本 `v2.3.0` 或更高.
 :::
 
-First, you need to install the Fastjs CLI:
+首先，在全局安装 Fastjs-cli:
 
 ```bash
 npm install -g fastjs-cli
 ```
 
-Then, use fastjs-cli to create a new project:
+安装好之后，用下面的命令创建一个新项目:
 
 ```bash
 fastjs create my-project
 ```
 
-## Write a demo
+## 编写Demo
 
 ```js
 import { selecter } from 'fastjs-next'
@@ -30,7 +30,7 @@ import { selecter } from 'fastjs-next'
 selecter('body').html('Hello World!')
 ```
 
-## Run the demo
+## 运行项目
 
 ```bash
 npm run dev
