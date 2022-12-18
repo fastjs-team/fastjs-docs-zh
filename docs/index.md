@@ -13,3 +13,4 @@ Fastjs 是一个高可用、高性能的 JavaScript 框架。它使用了简单�
 Fastjs 是由 [Fastjs Team](https://github.com/fastjs-team) 团队开发的。
 
 - [dy-xiaodong2022](https://xiaodong.indouyin.cn/)
+- Ivan-Ada
