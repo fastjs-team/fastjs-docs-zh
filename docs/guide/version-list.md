@@ -1,13 +1,13 @@
-# Version List
+# 版本列表
 
 ## v1.x
 
 ### v1.1
 
-- v1.1.1 <Badge type="tip" text="recommended"/>
-- v1.1.0 <Badge text="typescript" type="warning" title="It have some wrong types"/>
+- v1.1.1 <Badge type="tip" text="推荐使用"/>
+- v1.1.0 <Badge text="typescript" type="warning" title="它有一些错误"/>
 
-### v1.0 <Badge text="obsolete" type="warning"/> <Badge text="typescript" type="warning" title="It have some wrong types"/>
+### v1.0 <Badge text="过时的" type="warning"/> <Badge text="typescript" type="warning" title="它有一些错误"/>
 
 - v1.0.14
 - v1.0.13
@@ -23,4 +23,4 @@
 - v1.0.3
 - v1.0.2
 - v1.0.1
-- v1.0.0 <Badge text="danger" type="danger"/>
+- v1.0.0 <Badge text="不推荐使用" type="danger"/>
