@@ -144,12 +144,12 @@ $("span").css({
 
 ### Example
 
-Use `style` to set the style of the element.
+Use `css` to set the style of the element.
 
 ```javascript
 import { selecter as $ } from 'fastjs-next';
 
-$("span").style("color", "red !important");
+$("span").css("color", "red !important");
 ```
 
 ## Event <Badge text="v1.1.0" type="warning"/>
@@ -183,7 +183,7 @@ $("body").on("click", (el) => {
 });
 ```
 
-### off <Badge text="v1.1.0" type="warning"/>
+### off <Badge text="v1.1.0" type="tip"/>
 
 Use `off` to remove event from the element.
 
@@ -312,20 +312,4 @@ Use `focus()` to focus input element.
 import { selecter as $ } from 'fastjs-next';
 
 $("input").getEl().focus();
-```
-## Demo
-
-### Create and push to body
-
-```javascript
-import { FastjsDom } from 'fastjs-next';
-
-let div = new FastjsDom("div");
-div.html("Hello World")
-   .css({
-       "color": "green",
-       "font-size": "20px",
-       "font-weight": "bold"
-   })
-   .appendTo();
 ```

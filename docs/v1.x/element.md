@@ -87,10 +87,27 @@ Use `css` to set the style of the element.
 ```javascript
 import { selecter as $ } from 'fastjs-next';
 
-$("body").css("background-color", "red");
+// css(key, value, isImportant)
+$("body").css("background-color", "red", true);
+$("div").css({
+    "background-color": "red",
+    "color": "white"
+});
+```
+
+### v1.0.14 <Badge text="obsolete" type="warning"/>
+
+Use `css` to set the style of the element.
+
+```javascript
+import { selecter as $ } from 'fastjs-next';
+
+$("body").css("background-color", "red !important");
 ```
 
 ## Event
+
+### Add event
 
 Use `on` to add event to the element.
 
@@ -100,6 +117,20 @@ import { selecter as $ } from 'fastjs-next';
 $("body").on("click", () => {
     console.log("click");
 });
+```
+
+### Remove event <Badge text="v1.1.0" type="tip"/>
+
+Use `off` to remove event from the element.
+
+```javascript
+import { selecter as $ } from 'fastjs-next';
+
+const callback = (el) => {
+  console.log(el, "clicked");
+  el.off("click", callback);
+};
+$("body").on("click", callback);
 ```
 
 ## Change to Element
@@ -124,6 +155,14 @@ import { selecter as $ } from 'fastjs-next';
 console.log($("body").getEl().el()); // Element
 ```
 
+Use `el(index)` to change FastjsDomList -> FastjsDom to Element, index default is 0.
+
+```javascript
+import { selecter as $ } from 'fastjs-next';
+
+console.log($("body").el()); // Element
+```
+
 ## Add element
 
 Use `append` to add element.
@@ -143,7 +182,9 @@ Please give an Element, not FastjsDom or FastjsDomList.
 
 ### Add to end
 
-Use `append` or `push` to add the element to the end of the place.
+### Add to end
+
+Use `appendTo` or `push` to add the element to the end of the place.
 
 ```javascript
 import { selecter as $, FastjsDom } from 'fastjs-next';
@@ -155,7 +196,7 @@ div.appendTo($("body").el());
 
 ### Add to start
 
-Use `addFirst` to add    the element to the start of the place.
+Use `addFirst` to add the element to the start of the place.
 
 ```javascript
 import { selecter as $, FastjsDom } from 'fastjs-next';
@@ -163,6 +204,28 @@ import { selecter as $, FastjsDom } from 'fastjs-next';
 let div = new FastjsDom("div");
 div.html("Hello World");
 div.addFirst($("body").el());
+```
+
+### Add after element
+
+Use `addAfter` to add the element after the place.
+
+```javascript
+import { selecter as $, FastjsDom } from 'fastjs-next';
+
+$("body").html("<span>This is a website</span>")
+new FastjsDom("h1").text("Website").addAfter($("span").el());
+```
+
+### Add before element
+
+Use `addBefore` to add the element before the place.
+
+```javascript
+import { selecter as $, FastjsDom } from 'fastjs-next';
+
+$("body").html("<h1>Website</h1>")
+new FastjsDom("span").text("This is a website").addBefore($("h1").el());
 ```
 
 ## Access element
@@ -220,6 +283,7 @@ import { selecter as $ } from 'fastjs-next';
 
 $("input").getEl().focus();
 ```
+
 ## Demo
 
 ### Create and push to body
