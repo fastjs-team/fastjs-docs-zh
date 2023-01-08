@@ -47,7 +47,7 @@ class fastjsDomList {
 Use `html` or `text` to set the index of the element.
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("div").text("I am div");
 ```
@@ -66,11 +66,40 @@ el.text(text) -> each -> el.innerText = text -> el
 Use `html` or `text` to get the index of the fastjsDomList[0].
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("body").html("<span>1</span><span>2</span><span>3</span>");
 console.log($("span").text()); // 1
 ```
+
+## Set value <Badge text="v1.2.1" type="tip"/>
+
+:::warning
+After v1.2.0, val become stricter. Parameter `val` only be `string | undefined`.
+:::
+
+### Prototype
+
+```typescript
+class fastjsDom {
+    val(): string
+    val(val: string): FastjsDomList
+    
+    val(val?: string): FastjsDomList | string {}
+}
+```
+
+### Example
+
+Use `val` to set or get the value of the `input`, `textarea` and `button` element.
+
+```javascript
+import { selector as $ } from 'fastjs-next';
+
+$("input").val("Hello World");
+console.log($("input").val()); // Hello World
+```
+
 
 ## Set attribute
 
@@ -90,7 +119,7 @@ class fastjsDomList {
 Use `attr` to set the attribute of the element.
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("div").attr("i-am", "div");
 ```
@@ -116,7 +145,7 @@ class fastjsDomList {
 Use `css` to set the style of the element.
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("span").css("color", "red");
 ```
@@ -124,7 +153,7 @@ $("span").css("color", "red");
 This style is important? Write like this
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("span").css("color", "red", true);
 ```
@@ -132,7 +161,7 @@ $("span").css("color", "red", true);
 You can also use object to set the style of the element.
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("span").css({
     "color": "red",
@@ -147,7 +176,7 @@ $("span").css({
 Use `css` to set the style of the element.
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("span").css("color", "red !important");
 ```
@@ -176,7 +205,7 @@ function callback(el: FastjsDom, ...EventListenerCallback): void {}
 Use `on` to add event to the element.
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("body").on("click", (el) => {
     console.log(el, "clicked");
@@ -188,7 +217,7 @@ $("body").on("click", (el) => {
 Use `off` to remove event from the element.
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 const callback = (el) => {
     console.log(el, "clicked");
@@ -213,7 +242,7 @@ class fastjsDomList {
 Use `el(key)` to change FastjsDomList -> FastjsDom to Element.
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 console.log($("div").el()); // Element
 ```
@@ -221,12 +250,12 @@ console.log($("div").el()); // Element
 Use `getEl(key)` to get FastjsDom in FastjsDomList.
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 console.log($("div").getEl()); // FastjsDom
 ```
 
-## Access element
+## Access element <Badge text="v1.1.2" type="tips"/>
 
 :::tip
 You can also use `el()` to get the element.
@@ -236,18 +265,18 @@ You can also use `el()` to get the element.
 
 ```typescript
 class fastjsDom {
-    get<T extends keyof HTMLElement>(key: T): HTMLElement[T] {}
-    set<T extends keyof HTMLElement>(key: T, val: HTMLElement[T]): fastjsDom {}
+    set<T extends keyof HTMLElement>(key: T, val: HTMLElement[T], el?: number): fastjsDom {}
 }
 ```
 
-Use `get(index)` or `set(index, value)` to operate element.
+Use `set(index, value, set)` to operate element.
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
-$("body").set("innerHTML", "<h1>Hello World</h1>");
-console.log($("body").get("innerHTML")); // <h1>Hello World</h1>
+$("body > *")
+  .set("innerHTML", "<span>Hello World</span>")
+  .set("innerHTML", "<h1>Title</h1>", 0)
 ```
 
 ## Get Parent
@@ -265,51 +294,99 @@ class fastjsDomList {
 Use `father()` to get the parent of the fastjsDomList[0].
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("body").html("<div></div>");
 console.log($("div").father()); // FastjsDom -> body
 ```
 
-## Get Child
+## ForEach <Badge text="v1.1.2" type="tips"/>
+
+:::tip eachCallback -> index
+Query `index` is available after v1.2.1.
+:::
 
 ### Prototype
 
 ```typescript
-class fastjsDom {
-    first(): fastjsDom | null {}
-    last(): fastjsDom | null {}
+type eachCallback = (el: FastjsDom, dom: HTMLElement, index: number) => void;
+
+class fastjsDomList {
+    each(callback: eachCallback): fastjsDomList {}
 }
 ```
 
 ### Example
 
-Use `first` or `last` to get the first or last child of the element.
+Use `each` to loop the FastjsDomList.
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
-$("body").html("<span></span><div></div>");
-console.log($("body").first()); // FastjsDom -> span
-console.log($("body").last()); // FastjsDom -> div
+$("body > *").each((el, dom, index) => {
+    console.log(el, dom, index);
+});
 ```
 
-## Focus
+## Manage FastjsDomList
 
 ### Prototype
 
 ```typescript
-class fastjsDom {
-    focus(): fastjsDom {}
+class fastjsDomList {
+    add(el: FastjsDom | HTMLElement): FastjsDomList {}
+    delete(key: number, deleteDom: boolean = false): FastjsDomList {}
 }
 ```
 
 ### Example
 
-Use `focus()` to focus input element.
+Use `add` to add FastjsDom to FastjsDomList.
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
-$("input").getEl().focus();
+const list = new FastjsDomList();
+list.add($("div").getEl());
+
+// or
+$("div").each(list.add)
+```
+
+Use `delete` to delete FastjsDom from FastjsDomList.
+
+```javascript
+import { selector as $ } from 'fastjs-next';
+
+$("div").delete(0); // fastjsDomList without the first div
+
+// or
+$("div").delete(0, true); // fastjsDomList without the first div and remove it from the DOM
+```
+
+## Length
+
+### Prototype
+
+```typescript
+class fastjsDomList {
+    length: number
+}
+```
+
+### Example
+
+Use `length` to get the length of FastjsDomList.
+
+```html
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+```
+
+```javascript
+import { selector as $ } from 'fastjs-next';
+
+console.log($("div").length); // 4
 ```
