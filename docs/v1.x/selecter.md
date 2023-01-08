@@ -1,13 +1,13 @@
 # Selecter
 
-:::tip Newest version
-Fastjs-next `v1.1.1` is now available. [Click here](../other/changelog.html) to view the changelog.
+:::tip 新版本
+Fastjs-next `v1.1.1` 现已发布. [点此查看](../other/changelog.html) 更新日志.
 :::
 
-## Select element
+## 选中元素
 
-:::tip
-Use `selecter as $name` to change the name of the selecter.
+:::tip 额外知识
+用 `selecter as $name` 来更改选择器函数的名称.
 :::
 
 ```javascript
@@ -16,7 +16,7 @@ import { selecter } from 'fastjs-next';
 console.log(selecter("body")); // FastjsDom
 ```
 
-### Select element by id
+### 使用 id 选中元素
 
 ```javascript
 import { selecter as $ } from 'fastjs-next';
@@ -24,7 +24,7 @@ import { selecter as $ } from 'fastjs-next';
 console.log($("#id")); // FastjsDom
 ```
 
-### Select element by class
+### 使用 class 选中元素
 
 ```javascript
 import { selecter as $ } from 'fastjs-next';
@@ -32,13 +32,13 @@ import { selecter as $ } from 'fastjs-next';
 console.log($(".class")); // FastjsDomList
 ```
 
-::: details FastjsDom and FastjsDomList
-When will it return FastjsDom?
+::: details FastjsDom 和 FastjsDomList
+什么时候会返回 FastjsDom?
 
-If you use id to select element, it will return `FastjsDom`.<br/>
-Also, if your selector is selecting something in ./src/config.ts -> dom.specialDom: Array\<string\>, it will return `FastjsDom`.
+如果你使用 id 选中元素, 它会返回 `FastjsDom`.<br/>
+另外, 如果你的选择器选中了 ./src/config.ts -> dom.specialDom: Array\<string\> 中的元素, 它会返回 `FastjsDom`.
 :::
 
-## Return
+## 返回值
 
-`selecter` will return a `FastjsDom` or `FastjsDomList` object.
+`selecter` 会返回 `FastjsDom` 或 `FastjsDomList`.
