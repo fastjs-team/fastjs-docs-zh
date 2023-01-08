@@ -28,6 +28,30 @@ const ajax = new FastjsAjax("https://fastjs.com.cn/");
 
 ## Send Ajax
 
+### get <Badge text="v1.2.0" type="tip" />
+
+```javascript
+import {FastjsAjax} from 'fastjs-next';
+
+const ajax = new FastjsAjax("https://fastjs.com.cn/");
+ajax.get();
+
+// or
+new FastjsAjax("https://fastjs.com.cn/").get()
+```
+
+### post <Badge text="v1.2.0" type="tip" />
+
+```javascript
+import {FastjsAjax} from 'fastjs-next';
+
+const ajax = new FastjsAjax("https://fastjs.com.cn/");
+ajax.post();
+
+// or
+new FastjsAjax("https://fastjs.com.cn/").post()
+```
+
 ### send
 
 :::tip
@@ -39,13 +63,17 @@ import {FastjsAjax} from 'fastjs-next';
 
 const ajax = new FastjsAjax("https://fastjs.com.cn/");
 ajax.send("GET");
+
+// or
+new FastjsAjax("https://fastjs.com.cn/").send("GET")
+new FastjsAjax("https://fastjs.com.cn/").send("POST")
 ```
 
 ### Keep Alive <Badge text="Learn more" type="tip" />
 
 Set `config.keepAlive` to `true` to keep alive.
 
-When a ajax request is success or fail, it will be send again.
+When an ajax request is success or fail, it will send again.
 
 ```javascript
 import {FastjsAjax} from 'fastjs-next';
@@ -53,7 +81,7 @@ import {FastjsAjax} from 'fastjs-next';
 const ajax = new FastjsAjax("https://fastjs.com.cn/", {}, {
     keepAlive: true
 });
-ajax.send("GET");
+ajax.get();
 ```
 
 ## Send With Data
@@ -68,7 +96,7 @@ import {FastjsAjax} from 'fastjs-next';
 const ajax = new FastjsAjax("https://demo.lalala.com/getUser.php", {
     token: "iAmATokenHaHaHa(HaHaHa*100)"
 });
-ajax.send("POST");
+ajax.post();
 ```
 
 ### Headers
@@ -87,10 +115,20 @@ const ajax = new FastjsAjax("https://demo.lalala.com/", {}, {
         "Content-Type": "application/json"
     }
 });
-ajax.send("POST");
+ajax.post();
 ```
 
 ## Callback
+
+### then <Badge text="v1.2.0" type="tip" />
+
+```javascript
+import {FastjsAjax} from 'fastjs-next';
+
+new FastjsAjax("https://demo.lalala.com/").get().then((data) => {
+    console.log(data);
+});
+```
 
 ### success
 
@@ -102,7 +140,25 @@ const ajax = new FastjsAjax("https://demo.lalala.com/iWillReturnAnObjectWithMsg"
         console.log("Ajax success, msg is " + data.msg);
     }
 });
-ajax.send("GET");
+ajax.get();
+```
+
+### catch <Badge text="v1.2.0" type="tip" />
+
+```javascript
+import {FastjsAjax} from 'fastjs-next';
+
+// When no network
+new FastjsAjax("https://demo.lalala.com/").get().catch((data) => {
+    // data = FastjsError
+    console.log(data);
+});
+
+// When server return error, like 404 500
+new FastjsAjax("https://demo.lalala.com/iWillReturnAnObjectWithMsg").get().catch((data) => {
+    // data = server return data
+    console.log(data);
+});
 ```
 
 ### fail
@@ -117,10 +173,10 @@ const ajax = new FastjsAjax("https://demo.lalala.com/iWillReturnAnObjectWithMsg"
     failed: data => {
         console.log("Ajax fail, Retry?");
         // You can resend ajax here
-        ajax.send("GET");
+        ajax.get();
     }
 });
-ajax.send("GET");
+ajax.get();
 ```
 
 ## Common Config
@@ -135,7 +191,7 @@ import {FastjsAjax} from 'fastjs-next';
 const ajax = new FastjsAjax("https://demo.lalala.com/", {}, {
     timeout: 1000
 });
-ajax.send("GET");
+ajax.get();
 ```
 
 ### responseType
@@ -152,32 +208,32 @@ import {FastjsAjax} from 'fastjs-next';
 const ajax = new FastjsAjax("https://demo.lalala.com/", {}, {
     responseType: "text"
 });
-ajax.send("GET");
+ajax.get();
 ```
 
 ### wait
 
 Set `config.wait` to set wait time.
 
-When you send a ajax request, it will wait `config.wait` time to send.
+When you send an ajax request, it will wait `config.wait` time to send.
 
 If there is a new ajax request when it is waiting, it will cancel the old one and send the new one.
 
 ```javascript
-import {FastjsAjax, selecter} from 'fastjs-next';
+import {FastjsAjax, selector} from 'fastjs-next';
 
 const ajax = new FastjsAjax("https://demo.lalala.com/", {}, {
     wait: 1000
 });
-selecter("#btn").on("click", () => {
-    ajax.send("GET");
+selector("#btn").on("click", () => {
+    ajax.get();
 });
 
-selecter("#btn").el().click();
+selector("#btn").el().click();
 setTimeout(() => {
-    selecter("#btn").el().click();
+    selector("#btn").el().click();
     setTimeout(() => {
-        selecter("#btn").el().click();
+        selector("#btn").el().click();
     }, 500);
 }, 500);
 // It will only send 1 ajax request
@@ -187,18 +243,55 @@ setTimeout(() => {
 
 Set `config.shutdown` to set shutdown or not.
 
-If `config.shutdown` is `true`, if you already send a ajax request, it will not send again.
+If `config.shutdown` is `true`, if you already send an ajax request, it will not send again.
 
 ```javascript
-import {FastjsAjax, selecter} from 'fastjs-next';
+import {FastjsAjax, selector} from 'fastjs-next';
 
 const ajax = new FastjsAjax("https://demo.lalala.com/", {}, {
     shutdown: true,
     callback: data => {
         console.log("Ajax success");
-        ajax.send("GET");
+        ajax.get();
     }
 });
-ajax.send("GET");
+ajax.get();
 // It will only send 1 ajax request
+```
+
+### keepalive
+
+:::warning Promise
+It will only do one time `then()` or `catch()` when you're using Promise, you can use `config.callback` and `config.failed` to keepalive the ajax request.
+:::
+
+:::tip Keep Alive
+Set `config.keepAlive` to `true` to keep alive.
+
+When an ajax request is success or fail, it will automatically send again.
+:::
+
+Set `config.keepalive` to set keepalive or not.
+
+```javascript
+import {FastjsAjax} from 'fastjs-next';
+
+const ajax = new FastjsAjax("https://demo.lalala.com/", {}, {
+    keepalive: true
+}).get()
+```
+
+### keepaliveWait
+
+Set `config.keepaliveWait` to set keepalive wait time.
+
+When you set keepaliveWait, before send again, it will wait `config.keepaliveWait` time.
+
+```javascript
+import {FastjsAjax} from 'fastjs-next';
+
+const ajax = new FastjsAjax("https://demo.lalala.com/", {}, {
+    keepalive: true,
+    keepaliveWait: 1000
+}).get()
 ```
