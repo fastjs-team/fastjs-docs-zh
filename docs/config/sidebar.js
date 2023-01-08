@@ -60,7 +60,7 @@ export default {
       "items": [
         {
           "text": "选择器",
-          "link": "/v1.x/selecter"
+          "link": "/v1.x/selector"
         },
         {
           "text": "元素基础",
@@ -107,7 +107,7 @@ export default {
       "items": [
         {
           "text": "v1.x",
-          "link": "/v1.x/selecter"
+          "link": "/v1.x/selector"
         }
       ]
     },
