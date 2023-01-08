@@ -14,3 +14,4 @@ try {
 } catch (e) {
 
 }
+export default DefaultTheme
