@@ -1,7 +1,7 @@
-# Element
+# 元素
 
-:::tip Authoritative document
-This page is for senior users. If you are a junior user, you can skip this page.
+:::tip 进阶文档
+此页文档适合想要深入了解 Fastjs 的高级用户. 如果你只想简单使用 Fastjs, 你可以跳过此页
 :::
 
 ## Create Element
