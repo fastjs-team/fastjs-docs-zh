@@ -2,9 +2,14 @@
 
 ## v1.x
 
+### v1.2
+
+- v1.2.0 <Badge type="tip" text="推荐"/>
+
 ### v1.1
 
-- v1.1.1 <Badge type="tip" text="推荐使用"/>
+- v1.1.2
+- v1.1.1
 - v1.1.0 <Badge text="typescript" type="warning" title="它有一些错误"/>
 
 ### v1.0 <Badge text="过时的" type="warning"/> <Badge text="typescript" type="warning" title="它有一些错误"/>

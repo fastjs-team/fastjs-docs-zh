@@ -25,9 +25,9 @@ fastjs create my-project
 ## 编写Demo
 
 ```js
-import { selecter } from 'fastjs-next'
+import { selector } from 'fastjs-next'
 
-selecter('body').html('Hello World!')
+selector('body').html('Hello World!')
 ```
 
 ## 运行项目

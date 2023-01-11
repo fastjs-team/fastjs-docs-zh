@@ -1,12 +1,12 @@
 # Element
 
-:::tip Authoritative document
-This page is for junior users. If you want to know more, please see [FastjsDom](./dom.html) and [FastjsDomList](./domlist.html).
+:::tip 官方文档说明
+这个页面是为初级用户准备的。如果你想了解更多，请参阅[元素](./dom.html)和[元素列表](./domlist.html)。
 :::
 
-## Create Element
+## 创建元素
 
-Use `FastjsDom` to create a element.
+使用 `FastjsDom` 来创建元素。
 
 ```javascript
 import { FastjsDom } from 'fastjs-next';
@@ -15,8 +15,7 @@ const div = new FastjsDom("div");
 const span = new FastjsDom("span");
 ```
 
-You can also use `FastjsDom` to manage an existing element.
-
+你也可以通过使用 `FastjsDom` 来管理一个已经存在的元素。
 ```javascript
 import { FastjsDom } from 'fastjs-next';
 
@@ -24,68 +23,68 @@ const div = document.createElement("div");
 const fastjsDom = new FastjsDom(div);
 ```
 
-## Set index
+## 设置索引
 
-Use `html` or `text` to set the index of the element.
-
+使用 `html` 或 `text` 来设置元素的索引。
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("body").html("<h1>Hello World</h1>");
 ```
 
-## Get index
+## 获取索引
 
-Use `html` or `text` to get the index of the element.
+使用 `html` 或 `text` 来获取元素的索引。
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 console.log($("body").html()); // <h1>Hello World</h1>
 ```
 
-## Set value
+## 设置值
 
-:::tip Set value in FastjsDomList <Badge text="v1.1.1" type="tip" />
-Function `val()` in FastjsDomList is added in `v1.1.1`.
+:::tip 设置值在[元素列表](./domlist.html)中声明 <Badge text="v1.1.1" type="tip" />
+方法 `val()` 新增于[元素列表](./domlist.html)的 `v1.1.1` 版本.
 :::
 
 Use `val` to set or get the value of the `input`, `textarea` and `button` element.
+使用 `val` 来设置或获取 `input`, `textarea` 和 `button` 等的元素值。
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("input").val("Hello World");
 console.log($("input")[0].val()); // Hello World
 ```
 
 
-## Set attribute
+## 设置属性
 
-Use `attr` to set the attribute of the element.
+使用 `attr` 来设置元素的属性。
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("body").attr("id", "body");
 ```
 
-## Get attribute
+## 获取属性
 
-Use `attr` to get the attribute of the element.
+使用 `attr` 来获取元素的属性。
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 console.log($("body").attr("id")); // body
 ```
 
-## Set style
+## 设置样式
 
-Use `css` to set the style of the element.
+使用 `css` 来设置元素的样式
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 // css(key, value, isImportant)
 $("body").css("background-color", "red", true);
@@ -95,36 +94,36 @@ $("div").css({
 });
 ```
 
-### v1.0.14 <Badge text="obsolete" type="warning"/>
+### v1.0.14 <Badge text="过时的" type="warning"/>
 
-Use `css` to set the style of the element.
+使用 `css` 来设置元素的样式。
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("body").css("background-color", "red !important");
 ```
 
-## Event
+## 事件
 
-### Add event
+### 添加事件
 
-Use `on` to add event to the element.
+使用 `on` 来添加元素的事件
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("body").on("click", () => {
     console.log("click");
 });
 ```
 
-### Remove event <Badge text="v1.1.0" type="tip"/>
+### 移除事件 <Badge text="v1.1.0" type="tip"/>
 
-Use `off` to remove event from the element.
+使用 `off` 来删除元素的事件。
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 const callback = (el) => {
   console.log(el, "clicked");
@@ -133,160 +132,161 @@ const callback = (el) => {
 $("body").on("click", callback);
 ```
 
-## Change to Element
+## 改变元素
 
 ### FastjsDom
 
-Use `el()` to change FastjsDom to Element.
+使用 `el()` 将 FastjsDom 的改变展示到元素上。
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 console.log($("body").el()); // Element
 ```
 
 ### FastjsDomList
 
-Use `getEl(index)` to get FastjsDom, index default is 0.
+使用 `getEl(index)` 来获取 FastjsDom, 默认下标为 0。
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
-console.log($("body").getEl().el()); // Element
+console.log($("div").getEl().el()); // Element
 ```
 
-Use `el(index)` to change FastjsDomList -> FastjsDom to Element, index default is 0.
+使用 `el(index)` 来改变 FastjsDomList -> FastjsDom 到元素, 下标默认为 0。
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
-console.log($("body").el()); // Element
+console.log($("div").el()); // Element
 ```
 
-## Add element
+## 添加元素
+:::warning
+请给出一个元素，而不是 FastjsDom 或 FastjsDomList 。
+:::
 
-Use `append` to add element.
+使用 `append` 来添加元素。
 
 ```javascript
-import { selecter as $, FastjsDom } from 'fastjs-next';
+import { selector as $, FastjsDom } from 'fastjs-next';
 
 let div = new FastjsDom("div")
 $("body").append(div);
 ```
 
-## Add to place
+## 添加到指定位置
 
-:::warning
-Please give an Element, not FastjsDom or FastjsDomList.
+:::警告
+请给出一个元素，而不是 FastjsDom 或 FastjsDomList 。
 :::
 
-### Add to end
+### 添加到末尾
 
-### Add to end
-
-Use `appendTo` or `push` to add the element to the end of the place.
+使用 `appendTo` 或 `push` 将元素添加到位置的末尾。
 
 ```javascript
-import { selecter as $, FastjsDom } from 'fastjs-next';
+import { selector as $, FastjsDom } from 'fastjs-next';
 
 let div = new FastjsDom("div");
 div.html("Hello World");
 div.appendTo($("body").el());
 ```
 
-### Add to start
+### 添加到开头
 
-Use `addFirst` to add the element to the start of the place.
+使用 `addFirst` 将元素添加到位置的开头。
 
 ```javascript
-import { selecter as $, FastjsDom } from 'fastjs-next';
+import { selector as $, FastjsDom } from 'fastjs-next';
 
 let div = new FastjsDom("div");
 div.html("Hello World");
 div.addFirst($("body").el());
 ```
 
-### Add after element
+### 添加到元素的后面
 
-Use `addAfter` to add the element after the place.
+使用 `addAfter` 在位置之后添加元素。
 
 ```javascript
-import { selecter as $, FastjsDom } from 'fastjs-next';
+import { selector as $, FastjsDom } from 'fastjs-next';
 
 $("body").html("<span>This is a website</span>")
 new FastjsDom("h1").text("Website").addAfter($("span").el());
 ```
 
-### Add before element
+### 添加到元素的前面
 
-Use `addBefore` to add the element before the place.
+使用 `addBefore` 将元素添加到位置之前。
 
 ```javascript
-import { selecter as $, FastjsDom } from 'fastjs-next';
+import { selector as $, FastjsDom } from 'fastjs-next';
 
 $("body").html("<h1>Website</h1>")
 new FastjsDom("span").text("This is a website").addBefore($("h1").el());
 ```
 
-## Access element
+## 访问元素
 
 :::tip
-You can also use `el(index)` to get the element.
+你也可以使用 `el(index)` 来获得这个元素。
 :::
 
-Use `get(index)` or `set(index, value)` to operate element.
+使用 `get(index)` 或 `set(index, value)` 来操作元素。
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("body").set("innerHTML", "<h1>Hello World</h1>");
 console.log($("body").get("innerHTML")); // <h1>Hello World</h1>
 ```
 
-## Get Parent
+## 获取父级
 
-Use `father()` to get the parent of the element.
+使用 `father()` 来获取元素的父元素。
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("body").html("<div></div>");
 console.log($("div").father()); // FastjsDom -> body
 ```
 
-## Get Child
+## 获取子级
 
 :::warning
-It only work on FastjsDom.
+它只在 FastjsDom 上适用。
 :::
 
-Use `first` or `last` to get the first or last child of the element.
+使用 `first` or `last` 获取元素的第一个或最后一个子元素。
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("body").html("<span></span><div></div>");
 console.log($("body").first()); // FastjsDom -> span
 console.log($("body").last()); // FastjsDom -> div
 ```
 
-## Focus
+## 聚焦
 
-Use `focus()` to focus input element.
+使用 `focus()` 聚焦输入元素。
 
 :::warning
-It only work on FastjsDom.
+它只在 FastjsDom 上适用。
 :::
 
 ```javascript
-import { selecter as $ } from 'fastjs-next';
+import { selector as $ } from 'fastjs-next';
 
 $("input").getEl().focus();
 ```
 
-## Demo
+## 样例
 
-### Create and push to body
+### 创建并提交到 body 元素
 
 ```javascript
 import { FastjsDom } from 'fastjs-next';
